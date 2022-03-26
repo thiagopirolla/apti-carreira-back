@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "publishers",
+  "info": {
+    "singularName": "publisher",
+    "pluralName": "publishers",
+    "displayName": "setor",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "setor": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "setor",
+      "required": true
+    },
+    "pagina_de_carreiras": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::pagina-de-carreira.pagina-de-carreira",
+      "mappedBy": "setors"
+    }
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "kind": "collectionType",
+  "collectionName": "pagina_de_carreiras",
+  "info": {
+    "singularName": "pagina-de-carreira",
+    "pluralName": "pagina-de-carreiras",
+    "displayName": "Página de carreira",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "nome_empresa": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "slug_nome_empresa": {
+      "type": "uid",
+      "targetField": "nome_empresa",
+      "required": true
+    },
+    "depoimento_empresa": {
+      "type": "text",
+      "required": true
+    },
+    "descricao_empresa": {
+      "type": "richtext",
+      "required": true
+    },
+    "avaliacao_empresa": {
+      "type": "enumeration",
+      "enum": [
+        "Muito_boa",
+        "Boa",
+        "Media",
+        "Ruim",
+        "Muito_ruim"
+      ],
+      "required": false
+    },
+    "data_abertura_empresa": {
+      "type": "date",
+      "required": true
+    },
+    "avatar_empresa": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "capa_empresa": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "galeria_empresa": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "videos"
+      ]
+    },
+    "setors": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::publisher.publisher",
+      "inversedBy": "pagina_de_carreiras"
+    }
+  }
+}
